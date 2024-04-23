@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AdministratorWydarzen.Presenter
 {
@@ -27,6 +29,8 @@ namespace AdministratorWydarzen.Presenter
             _view.Read += Read;
             _view.DetailedDescription += DetailedDescription;
             _view.RowColorChange += RowColorChange;
+            _view.Filter += Filter;
+            _view.Sort += Sort;
             
 
             _view.SetEventListBindingSource(_eventsBindingSource);
@@ -101,6 +105,41 @@ namespace AdministratorWydarzen.Presenter
             }
             
             
+        }
+        public void Filter(string s,DateTime date)
+
+
+        {
+            _eventList=_eventManager.Filter(s,date);
+            _eventsBindingSource.DataSource = _eventList;
+
+            Color color;
+            string type;
+            int index = 0;
+            foreach (var e in _eventList)
+            {
+                type = _eventManager.GetType(e);
+                color = _eventManager.getRowColor(type);
+                _view.SetRowColor(index, color);
+                index++;
+            }
+
+        }
+        public void Sort(string s)
+        {
+            _eventList = _eventManager.Sort(s);
+            _eventsBindingSource.DataSource = _eventList;
+
+            Color color;
+            string type;
+            int index = 0;
+            foreach (var e in _eventList)
+            {
+                type = _eventManager.GetType(e);
+                color = _eventManager.getRowColor(type);
+                _view.SetRowColor(index, color);
+                index++;
+            }
         }
     }
 }

@@ -195,7 +195,7 @@
             comboBox3.AutoCompleteCustomSource.AddRange(new string[] { resources.GetString("comboBox3.AutoCompleteCustomSource"), resources.GetString("comboBox3.AutoCompleteCustomSource1"), resources.GetString("comboBox3.AutoCompleteCustomSource2") });
             comboBox3.BackColor = Color.Snow;
             comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { resources.GetString("comboBox3.Items"), resources.GetString("comboBox3.Items1"), resources.GetString("comboBox3.Items2") });
+            comboBox3.Items.AddRange(new object[] { resources.GetString("comboBox3.Items"), resources.GetString("comboBox3.Items1"), resources.GetString("comboBox3.Items2"), resources.GetString("comboBox3.Items3") });
             resources.ApplyResources(comboBox3, "comboBox3");
             comboBox3.Name = "comboBox3";
             // 
@@ -221,7 +221,7 @@
             comboBox4.AutoCompleteCustomSource.AddRange(new string[] { resources.GetString("comboBox4.AutoCompleteCustomSource"), resources.GetString("comboBox4.AutoCompleteCustomSource1"), resources.GetString("comboBox4.AutoCompleteCustomSource2") });
             comboBox4.BackColor = Color.Snow;
             comboBox4.FormattingEnabled = true;
-            comboBox4.Items.AddRange(new object[] { resources.GetString("comboBox4.Items"), resources.GetString("comboBox4.Items1"), resources.GetString("comboBox4.Items2"), resources.GetString("comboBox4.Items3") });
+            comboBox4.Items.AddRange(new object[] { resources.GetString("comboBox4.Items"), resources.GetString("comboBox4.Items1"), resources.GetString("comboBox4.Items2"), resources.GetString("comboBox4.Items3"), resources.GetString("comboBox4.Items4"), resources.GetString("comboBox4.Items5"), resources.GetString("comboBox4.Items6"), resources.GetString("comboBox4.Items7"), resources.GetString("comboBox4.Items8"), resources.GetString("comboBox4.Items9") });
             resources.ApplyResources(comboBox4, "comboBox4");
             comboBox4.Name = "comboBox4";
             // 

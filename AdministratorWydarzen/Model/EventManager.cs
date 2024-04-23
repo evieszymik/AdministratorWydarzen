@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Xml.Serialization;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -10,15 +11,13 @@ namespace AdministratorWydarzen.Model
 {
     internal class EventManager:IEventManager
     {
-        private List<Event> eventsList;
-        private List<Event> eventsListPriorityLow;
-        private List<Event> eventsListPriorityMedium;
-        private List<Event> eventsListPriorityHigh;
+        private List<Event> eventsList; 
         private List<Event> eventsListWithout;
+        
         public EventManager()
         {
             eventsList = new List<Event>();
-            eventsListWithout= new List<Event>();
+            eventsListWithout = new List<Event>();
         }
         public List<Event> GetAll()
         {
@@ -137,6 +136,178 @@ namespace AdministratorWydarzen.Model
                 color = Color.Blue;
             }
             return color;
+        }
+        public List<Event> Filter(string s,DateTime date)
+        {
+            List<Event> eventsFiltered=new List<Event>();
+            
+            switch (s)
+            {
+                case "Priority Low":
+                    foreach (Event e in eventsList)
+                    {
+                        if (e.priority == "Low")
+                        {
+                            eventsFiltered.Add(e);
+                        }
+                    }
+                    break;
+                case "Priority Medium":
+                    foreach (Event e in eventsList)
+                    {
+                        if (e.priority == "Medium")
+                        {
+                            eventsFiltered.Add(e);
+                        }
+                    }
+                    break;
+                case "Priority High":
+                    foreach (Event e in eventsList)
+                    {
+                        if (e.priority == "High")
+                        {
+                            eventsFiltered.Add(e);
+                        }     
+                    }   
+                    break;
+                case "Type Sport":
+                    foreach (Event e in eventsList)
+                    {
+                        if (e.type == "Sport")
+                        {
+                            eventsFiltered.Add(e);
+                        }
+                    } 
+                    break;
+                case "Type Health":
+                    foreach (Event e in eventsList)
+                    {
+                         if (e.type == "Health")
+                        {
+                            eventsFiltered.Add(e);
+                        } 
+                    }  
+                    break;
+                case "Type Work":
+                    foreach (Event e in eventsList)
+                    {
+                        if (e.type == "Work")
+                        {
+                            eventsFiltered.Add(e);
+                        } 
+                    } 
+                    break;
+                case "Type Family":
+                    foreach (Event e in eventsList)
+                    { 
+                        if (e.type == "Family")
+                        {
+                            eventsFiltered.Add(e);
+                        }  
+                    }
+                    break;
+                case "Type Entertainment":
+                    foreach (Event e in eventsList)
+                    {
+                        if (e.type == "Entertainment")
+                        {
+                            eventsFiltered.Add(e);
+                        }
+                    }
+                    break;
+                case "Date":
+                    foreach (Event e in eventsList)
+                    {
+                        if (e.date == date)
+                        {
+                            eventsFiltered.Add(e);
+                        }
+                    }
+                    break;
+                default:
+                    return eventsList; 
+            }
+            return eventsFiltered;
+        }
+
+        public List<Event> Sort(string s)
+        {
+            List<Event> eventsSorted = new List<Event>();
+
+            switch (s)
+            {
+                case "Priority":
+                    foreach (Event e in eventsList)
+                    {
+                        if (e.priority == "High")
+                            eventsSorted.Add(e);
+                    }
+                    foreach (Event e in eventsList)
+                    {
+                        if (e.priority == "Medium")
+                            eventsSorted.Add(e);
+                    }
+                    foreach (Event e in eventsList)
+                    {
+                        if (e.priority == "Low")
+                            eventsSorted.Add(e);
+                    }
+                    break;
+                case "Type":
+                    foreach (Event e in eventsList)
+                    {
+                        if (e.type == "Health")
+                            eventsSorted.Add(e);
+                    }
+                    foreach (Event e in eventsList)
+                    {
+                        if (e.type == "Work")
+                            eventsSorted.Add(e);
+                    }
+                    foreach (Event e in eventsList)
+                    {
+                        if (e.type == "Family")
+                            eventsSorted.Add(e);
+                    }
+                    foreach (Event e in eventsList)
+                    {
+                        if (e.type == "Sport")
+                            eventsSorted.Add(e);
+                    }
+                    foreach (Event e in eventsList)
+                    {
+                        if (e.type == "Entertainment")
+                            eventsSorted.Add(e);
+                    } 
+                    break;
+                case "Date":
+                    foreach (Event e in eventsList)
+                    {
+                            eventsSorted.Add(e);
+                    }
+
+                    Event temp;
+
+                    for(int i=0;i<eventsSorted.Count-1;i++)
+                    {
+                        for(int j=i+1;j<eventsSorted.Count;j++)
+                        {
+                            if (eventsSorted[i].date > eventsSorted[j].date)
+                            {
+                                temp = eventsSorted[i];
+                                eventsSorted[i] = eventsSorted[j];
+                                eventsSorted[j] = temp;
+
+                            }
+                        }
+                    }
+                    
+                    break;
+                default:
+                    return eventsList;
+                
+            }  
+            return eventsSorted;
         }
     }
 }

@@ -586,13 +586,16 @@
     <value>Priority</value>
   </data>
   <data name="comboBox3.Items" xml:space="preserve">
-    <value>Prioroty</value>
+    <value>Priority</value>
   </data>
   <data name="comboBox3.Items1" xml:space="preserve">
     <value>Type</value>
   </data>
   <data name="comboBox3.Items2" xml:space="preserve">
     <value>Date</value>
+  </data>
+  <data name="comboBox3.Items3" xml:space="preserve">
+    <value>None</value>
   </data>
   <data name="comboBox3.Location" type="System.Drawing.Point, System.Drawing">
     <value>847, 40</value>
@@ -709,15 +712,33 @@
     <value>Priority</value>
   </data>
   <data name="comboBox4.Items" xml:space="preserve">
-    <value>Prioroty</value>
+    <value>Priority Low</value>
   </data>
   <data name="comboBox4.Items1" xml:space="preserve">
-    <value>Type</value>
+    <value>Priority Medium</value>
   </data>
   <data name="comboBox4.Items2" xml:space="preserve">
-    <value>Date</value>
+    <value>Priority High</value>
   </data>
   <data name="comboBox4.Items3" xml:space="preserve">
+    <value>Type Health</value>
+  </data>
+  <data name="comboBox4.Items4" xml:space="preserve">
+    <value>Type Work</value>
+  </data>
+  <data name="comboBox4.Items5" xml:space="preserve">
+    <value>Type Family</value>
+  </data>
+  <data name="comboBox4.Items6" xml:space="preserve">
+    <value>Type Sport</value>
+  </data>
+  <data name="comboBox4.Items7" xml:space="preserve">
+    <value>Type Entertainment</value>
+  </data>
+  <data name="comboBox4.Items8" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="comboBox4.Items9" xml:space="preserve">
     <value>None</value>
   </data>
   <data name="comboBox4.Location" type="System.Drawing.Point, System.Drawing">

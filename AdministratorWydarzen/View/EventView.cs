@@ -14,6 +14,8 @@ namespace AdministratorWydarzen
         public event Action<int> Delete;
         public event Action Save;
         public event Action Read;
+        public event Action<string> Sort;
+        public event Action <string, DateTime>Filter;
         public event Action RowColorChange;
         public event Func<int, string> DetailedDescription;
         public string Title { get => textBoxTitle.Text; set => textBoxTitle.Text = value; }
@@ -76,6 +78,7 @@ namespace AdministratorWydarzen
             {
                 Add?.Invoke();
                 RowColorChange?.Invoke();
+               
             }
 
 
@@ -105,7 +108,8 @@ namespace AdministratorWydarzen
         {
             if (setEmptyType(comboBox3))
             {
-                //listBox1.Items.Add("hey");
+                Sort?.Invoke(comboBox3.Text);
+                
             }
 
         }
@@ -114,8 +118,7 @@ namespace AdministratorWydarzen
         {
             if (setEmptyType(comboBox4))
             {
-                //listBox1.Items.Add("hey");
-                
+                Filter?.Invoke(comboBox4.Text,monthCalendar1.SelectionRange.Start);   
             }
         }
 

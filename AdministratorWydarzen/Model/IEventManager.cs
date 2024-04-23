@@ -19,6 +19,9 @@ namespace AdministratorWydarzen.Model
         public string GetDescription(Event e);
         public string GetType(Event e);
         public Color getRowColor(string type);
+        public List<Event> Filter(string s,DateTime date);
+
+        public List<Event> Sort(string s);
 
     }
 }
